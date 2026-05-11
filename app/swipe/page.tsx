@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
-import ShopCard from "@/components/ShopCard";
+import SwipeDeck from "@/components/SwipeDeck";
 import type { Shop } from "@/types/shop";
 
 function SwipeInner() {
@@ -31,13 +31,7 @@ function SwipeInner() {
     return <p className="mt-20 text-center text-gray-700">店が見つかりませんでした</p>;
   }
 
-  return (
-    <div className="flex flex-col gap-4">
-      {shops.map((s) => (
-        <ShopCard key={s.id} shop={s} />
-      ))}
-    </div>
-  );
+  return <SwipeDeck shops={shops} />;
 }
 
 export default function SwipePage() {
